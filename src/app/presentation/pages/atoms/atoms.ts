@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  AlertAtom,
   BadgeAtom,
   BadgeType,
   BadgeTypeText,
@@ -8,6 +9,7 @@ import {
   ButtonType,
   ContainerAtom,
   IconAtom,
+  DropdownAtom,
 } from '@brejcha13320/design-system-bootstrap';
 
 @Component({
@@ -17,6 +19,8 @@ import {
     ButtonAtom,
     IconAtom,
     ContainerAtom,
+    AlertAtom,
+    DropdownAtom,
     CommonModule,
   ],
 })
@@ -51,8 +55,45 @@ export class Atoms {
     { name: 'ban', size: 5 },
   ]
 
+  alerts: { type: ButtonType; typeText: BadgeTypeText }[] = [
+    { type: 'primary', typeText: 'text-white' },
+    { type: 'secondary', typeText: 'text-white' },
+    { type: 'success', typeText: 'text-white' },
+    { type: 'danger', typeText: 'text-white' },
+    { type: 'warning', typeText: 'text-dark' },
+    { type: 'info', typeText: 'text-dark' },
+    { type: 'light', typeText: 'text-dark' },
+    { type: 'dark', typeText: 'text-white' },
+  ];
+
+dropdowns: { idDropdown: string; label: string; type: ButtonType; items: string[] }[] = [
+  {
+    idDropdown: 'dropdown-primary',
+    label: 'Primary',
+    type: 'primary',
+    items: ['Primera opción', 'Segunda opción', 'Tercera opción'],
+  },
+  {
+    idDropdown: 'dropdown-secondary',
+    label: 'Secondary',
+    type: 'secondary',
+    items: ['Primera opción', 'Segunda opción', 'Tercera opción'],
+  },
+  {
+    idDropdown: 'dropdown-success',
+    label: 'Success',
+    type: 'success',
+    items: ['Primera opción', 'Segunda opción', 'Tercera opción'],
+  },
+  // agrega más tipos si quieres...
+];
+
   onClick(idButton: string){
     alert(`Click en el Boton ${idButton}`);
+  }
+
+  onSelect(item: string) {
+    alert(`Seleccionaste: ${item}`);
   }
 
 }
